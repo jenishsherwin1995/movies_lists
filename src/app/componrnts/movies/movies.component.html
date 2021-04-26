@@ -1,0 +1,18 @@
+<button class="btn btn-primary" (click)="logout()">Logout</button>
+<button class="btn btn-primary" (click)="loadMovies(1)">Refresh</button>
+<div calss="container">
+  <div class="row">
+    <div class="card" style="width: 18rem;" *ngFor="let listItem of list">
+      <img src="{{listItem.imageSource}}" class="card-img-top" alt="{{listItem.title}}">
+      <div class="card-body">
+        <h5 class="card-title">{{listItem.title}}</h5>
+        <p class="card-text description">{{listItem.description}}</p>
+        <p class="card-text">Genres: {{listItem.genres}}</p>
+        <a class="btn btn-primary">View</a>
+      </div>
+    </div>
+  </div>
+  <ngb-pagination class="d-flex justify-content-start" [collectionSize]="collectionSize" [pageSize]="list.length"
+    [maxSize]="10" [rotate]="true" [ellipses]="false" *ngIf="collectionSize != 0" [(page)]="currentPage">
+  </ngb-pagination>
+</div>
